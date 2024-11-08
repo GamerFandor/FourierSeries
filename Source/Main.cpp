@@ -1,8 +1,10 @@
 #include <iostream>
+#include "Core/Application.h"
 
-int main( void )
+int main(void)
 {
-    std::cout << "Hello World!" << "\n";
+    Application app;
+    app.Run();
 
     return EXIT_SUCCESS;
 }
