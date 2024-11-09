@@ -36,6 +36,7 @@ ImGuiFramework::ImGuiFramework()
         exit(1);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
+    glfwSetWindowSizeLimits(this->window, 590, 350, GLFW_DONT_CARE, GLFW_DONT_CARE);
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();

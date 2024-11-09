@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include "Platform.h"
 #ifdef PLATFORM_WINDOWS
     #include <Windows.h>
@@ -7,7 +6,7 @@
 #include "Math/Functions.h"
 
 /**
- * @brief Configure the application (mainly ImGui)
+ * @brief Configure the application and do initial calculations (in this case, calculate the waves)
  * 
  */
 void Application::StartUp()
@@ -20,7 +19,7 @@ void Application::StartUp()
 }
 
 /**
- * @brief The main loop of the program
+ * @brief The main loop of the program (here I display the waves, their parameters and allow the user to change them)
  * 
  */
 void Application::Update()
@@ -69,8 +68,8 @@ void Application::Update()
     if (ImPlot::BeginPlot("Sine Wave")) 
     {
         ImPlot::SetupAxes("t[s]", "U[V]");
-        ImPlot::PlotLine("U(t)", x_data, y_data, DataAmount);
-        ImPlot::PlotLine("U(t) - Default", x_data_def, y_data_def, DataAmount);
+        ImPlot::PlotLine("u(t)", x_data, y_data, DataAmount);
+        ImPlot::PlotLine("u(t) - Default", x_data_def, y_data_def, DataAmount);
         ImPlot::EndPlot();
     }
 
@@ -93,7 +92,7 @@ void Application::Update()
     if (ImPlot::BeginPlot("Square Wave")) 
     {
         ImPlot::SetupAxes("t[s]", "U[V]");
-        ImPlot::PlotLine("U(t)", x_data_square, y_data_square, DataAmount);
+        ImPlot::PlotLine("u(t)", x_data_square, y_data_square, DataAmount);
         ImPlot::EndPlot();
     }
 
@@ -110,7 +109,7 @@ void Application::Update()
     if (ImPlot::BeginPlot("Dirac Impulse Wave")) 
     {
         ImPlot::SetupAxes("t[s]", "U[V]");
-        ImPlot::PlotLine("U(t)", x_data_dirac, y_data_dirac, DataAmount);
+        ImPlot::PlotLine("u(t)", x_data_dirac, y_data_dirac, DataAmount);
         ImPlot::EndPlot();
     }
 
@@ -129,7 +128,7 @@ void Application::Update()
     if (ImPlot::BeginPlot("Sawtooth Wave")) 
     {
         ImPlot::SetupAxes("t[s]", "U[V]");
-        ImPlot::PlotLine("U(t)", x_data_saw, y_data_saw, DataAmount);
+        ImPlot::PlotLine("u(t)", x_data_saw, y_data_saw, DataAmount);
         ImPlot::EndPlot();
     }
 

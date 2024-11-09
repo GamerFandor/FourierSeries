@@ -6,9 +6,16 @@ add_subdirectory(Vendor/GLFW)
 
 file(GLOB_RECURSE SOURCE "Source/*.cpp" "Source/**/*.cpp")
 
-add_executable(${PROJECT_NAME} ${SOURCE})
+if (WIN32)
+    add_definitions(-D_AFXDLL)
+    set(CMAKE_MFC_FLAG 2)
+    add_executable(${PROJECT_NAME} WIN32 ${SOURCE})
+else()
+    add_executable(${PROJECT_NAME} ${SOURCE})
+endif()
 
-if (WIND32)
+
+if (WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE glfw opengl32)
     target_link_libraries(${PROJECT_NAME} PRIVATE kernel32.lib user32.lib)
 else()
