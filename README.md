@@ -1,10 +1,15 @@
-# C/C++ Template
-The project is a starter project designed to provide a well-organized and ready-to-use setup for developing C/C++ projects using Visual Studio Code. This template is aimed at helping developers quickly get started with C/C++ development without the hassle of setting up a build system and file hierarchy.
+## Explanations of each wave
+### Sine Wave
+$$u(t)=A*sin\left(\frac{2\pi}{T}+\varphi\right)$$
 
-### How to Get Started
-Once you've created your repository using this template, you can begin configuring the project and writing code instantly. First, rename the project in the `CMakeLists.txt` file. Then, you can start writing code in the `Source` directory. You can also create subdirectories if needed. When you're ready to run your code, simply press `Ctrl+Shift+B` to build and compile your project. Afterward, you can run it by pressing `F5`.
+---
 
-### Dependencies
-- [CMake](https://cmake.org/download/)
-- [Clang](https://llvm.org/builds/)
-- [Make](https://gnuwin32.sourceforge.net/packages/make.htm)
+### Square Wave
+$$a_0=\frac{1}{T}\left(\int_{0}^{\frac{DT}{100}}V_1dt+\int_{\frac{DT}{100}}^{T}V_2dt\right)=V_1\frac{D}{100}+V_2\left(1-\frac{D}{100}\right)$$
+$$a_n=\frac{2}{T}\left(\int_{0}^{\frac{DT}{100}}V_1 * cos\left(\frac{2n\pi}{T}t\right)dt+\int_{\frac{DT}{100}}^{T}V_2 * cos\left(\frac{2n\pi}{T}t\right)dt\right)=\frac{2}{T}\left(V_1\frac{sin\left(\frac{Dn\pi}{50}\right)}{\frac{2n\pi}{T}}+V_2\frac{sin\left(2n\pi\right)-sin\left(\frac{Dn\pi}{50}\right)}{\frac{2n\pi}{T}}\right)$$
+$$b_n=\frac{2}{T}\left(\int_{0}^{\frac{DT}{100}}V_1 * sin\left(\frac{2n\pi}{T}t\right)dt+\int_{\frac{DT}{100}}^{T}V_2 * sin\left(\frac{2n\pi}{T}t\right)dt\right)=\frac{2}{T}\left(V_1\frac{1-cos\left(\frac{Dn\pi}{50}\right)}{\frac{2n\pi}{T}}+V_2\frac{cos\left(\frac{Dn\pi}{50}\right)-cos\left(2n\pi\right)}{\frac{2n\pi}{T}}\right)$$
+$$A_n=\sqrt{{a_n}^2+{b_n}^2}$$
+$$\phi_n=atan2(b_n, a_n)+n\varphi$$
+$$u(t)=a_0+\sum_{n=1}^{\infty}A_n*cos\left(\frac{2n\pi}{T}t-\phi_n\right)$$
+
+---
