@@ -1,6 +1,6 @@
 ## Explanations of each wave
 ### Sine Wave
-$$u(t)=A*sin\left(\frac{2\pi}{T}+\varphi\right)$$
+$$u(t)=A*sin\left(\frac{2\pi}{T}t+\varphi\right)$$
 
 ---
 
